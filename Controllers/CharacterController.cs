@@ -12,9 +12,9 @@ namespace BogotaTestingNights.Controllers
     [Route("[controller]")]
     public class CharacterController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CharacterController> _logger;
 
-        public CharacterController(ILogger<WeatherForecastController> logger)
+        public CharacterController(ILogger<CharacterController> logger)
         {
             _logger = logger;
         }

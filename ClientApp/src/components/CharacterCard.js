@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
-        maxHeight: 
     },
     media: {
         height: 140,
@@ -32,28 +31,28 @@ export default function CharacterCard({ id, name, status, species, type, gender,
                {name}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Id: {id}
+                        <b>Id:</b> {id}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Status: {status}
+                        <b>Status:</b> {status}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Species: {species}
+                        <b>Species:</b> {species}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Type: {type}
+                        <b>Type:</b> {type}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Gender: {gender}
+                        <b>Gender:</b> {gender}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Location: {location}
+                        <b>Location:</b> {location}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Episode: {episode}
+                        <b>Episode:</b> {episode}
                </Typography>
                <Typography variant="body2" color="textSecondary" component="p">
-               Created: {created}
+                        <b>Created:</b> {created}
                </Typography>
                 </CardContent>
             </CardActionArea>
