@@ -33,22 +33,30 @@ export class Character extends Component {
     }
 
     static renderCard(character) {
-        return (
-            <Grid container>
-                {character.map(charact =>
-                    <Grid item xs={12} sm={6} md={3} spacing={5} style={{ padding: '10px', height: "100%"}} >
-                    <CharacterCard key={charact.name} id={charact.id} name={charact.name} status={charact.status} species={charact.species}
-                            type={charact.type} gender={charact.gender} location={charact.location} image={charact.image} episode={charact.episode} created={charact.created} />
-               </Grid>)
-                }
-            </Grid>
-        );
+        if (character[0].name != "badRequest") {
+            return (
+
+                <Grid container>
+                    {character.map(charact =>
+                        <Grid item xs={12} sm={6} md={3} spacing={5} style={{ padding: '10px', height: "100%" }} >
+                            <CharacterCard key={charact.name} id={charact.id} name={charact.name} status={charact.status} species={charact.species}
+                                type={charact.type} gender={charact.gender} location={charact.location} image={charact.image} episode={charact.episode} created={charact.created} />
+                        </Grid>)
+                    }
+                </Grid>
+            );
+        }
+        else {
+            return (
+                <p><b>Not results for this search</b></p>
+            );
+        }
     }
 
     render()
     {
        let contents = this.state.loading
-              ? <p>Loading...</p>
+              ? <p></p>
               : Character.renderCard(this.state.character);
       return (
           <div>
@@ -64,7 +72,7 @@ export class Character extends Component {
                       <Button style={{ marginTop: '20px' }} type="submit" variant="contained" color="primary">Search</Button>
                   </Grid>
               </form>
-                  <div>
+                  <div style={{ marginTop: '20px' }}>
                   {contents}
                   </div>
               </div>

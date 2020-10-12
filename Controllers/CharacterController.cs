@@ -28,20 +28,30 @@ namespace BogotaTestingNights.Controllers
             try
             {
                 var characterObj = JsonConvert.DeserializeObject<CharacterResponse>(response.Content);
-
-                return Enumerable.Range(0,characterObj.results.Length).Select(index => new Character
+                if( characterObj.info != null )
+                { 
+                    return Enumerable.Range(0,characterObj.results.Length).Select(index => new Character
+                    {
+                        id = characterObj.results[index].id,
+                        name = characterObj.results[index].name,
+                        status = characterObj.results[index].status,
+                        species = characterObj.results[index].species,
+                        type = characterObj.results[index].type,
+                        gender = characterObj.results[index].gender,
+                        location = characterObj.results[index].location.name,
+                        image = characterObj.results[index].image,
+                        episode = characterObj.results[index].episode[0].LastIndexOf("/") + 1,
+                        created = characterObj.results[index].created.ToString()
+                    }).ToArray();
+                }
+                else
                 {
-                    id = characterObj.results[index].id,
-                    name = characterObj.results[index].name,
-                    status = characterObj.results[index].status,
-                    species = characterObj.results[index].species,
-                    type = characterObj.results[index].type,
-                    gender = characterObj.results[index].gender,
-                    location = characterObj.results[index].location.name,
-                    image = characterObj.results[index].image,
-                    episode = characterObj.results[index].episode[0].LastIndexOf("/") + 1,
-                    created = characterObj.results[index].created.ToString()
-                }).ToArray();
+                    return new Character[]
+                    {
+                    new Character{name = "badRequest"}
+                    };
+                }
+
             }
             catch (Exception e)
             {
