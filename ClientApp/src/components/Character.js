@@ -81,7 +81,7 @@ export class Character extends Component {
     }
 
     async searchCharacter() {
-        const response = await fetch('Character', {
+        const response = await fetch('character', {
             method: 'Post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

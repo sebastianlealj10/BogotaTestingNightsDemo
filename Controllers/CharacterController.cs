@@ -9,12 +9,12 @@ using RestSharp;
 namespace BogotaTestingNights.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class CharacterController : ControllerBase
+    [Route("character")]
+    public class LocationController : ControllerBase
     {
-        private readonly ILogger<CharacterController> _logger;
+        private readonly ILogger<LocationController> _logger;
 
-        public CharacterController(ILogger<CharacterController> logger)
+        public LocationController(ILogger<LocationController> logger)
         {
             _logger = logger;
         }
