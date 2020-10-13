@@ -35,7 +35,6 @@ export class Character extends Component {
     static renderCard(character) {
         if (character[0].name != "badRequest") {
             return (
-
                 <Grid container>
                     {character.map(charact =>
                         <Grid item xs={12} sm={6} md={3} spacing={5} style={{ padding: '10px', height: "100%" }} >

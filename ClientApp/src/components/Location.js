@@ -54,7 +54,7 @@ export class Location extends Component {
             : Location.renderCard(this.state.location);
         return (
             <div>
-                <h1>Characters</h1>
+                <h1>Locations</h1>
                 <div style={{ display: "inline-block" }}>
                     <form className="root" style={{ width: '200px' }} onSubmit={this.handleSubmit} noValidate autoComplete="off">
                         <Grid container>
